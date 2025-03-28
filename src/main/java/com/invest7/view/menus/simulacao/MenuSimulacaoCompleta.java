@@ -17,9 +17,9 @@ public class MenuSimulacaoCompleta {
 
     public static <InvestimentoController> void simulacaoCompleta() {
         Scanner sc = new Scanner(System.in);
+
         double capital = 0.0, aporteMensal = 0.0, precoCota = 0.0,
                 dividendoPorCota = 0.0, precoCompra = 0.0, precoVenda = 0.0;
-
 
         int prazo = 0, quantidadeCotas = 0, quantidade = 0, reinvestir = 0;
         boolean digitoCerto = false;
@@ -50,7 +50,6 @@ public class MenuSimulacaoCompleta {
                 sc.next();
             }
         }
-
 
         digitoCerto = false;
         while (!digitoCerto) {

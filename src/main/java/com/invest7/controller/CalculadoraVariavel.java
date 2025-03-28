@@ -16,7 +16,6 @@ public class CalculadoraVariavel {
     public static final int REINVESTIR_NAO = 2;
     private static final double LIMITE_ISENCAO_IR = 20000.0;
 
-
     //calculadora de FIIs
     public List<Fiis> simularFundoImobiliario( Fiis calculadoraV) {
         FiisDAO dao = new FiisDAO();
@@ -58,8 +57,7 @@ public class CalculadoraVariavel {
                     saldoDividendos -= novasCotasAporte * precoCota;
                 }
             }
-
-
+double saldoCotas = precoCota * quantidadeCotas;
 
             Fiis fiiSimulado = new Fiis(
                     fii.getNome(),
@@ -69,10 +67,8 @@ public class CalculadoraVariavel {
                     fii.getDesvioDividendos()
             );
 
-
-            fiiSimulado.setSaldoCotas((quantidadeCotas*precoCota));
+            fiiSimulado.setSaldoCotas((saldoCotas));
             fiiSimulado.setSaldoDividendos(saldoDividendos);
-
 
             fiisSimulados.add(fiiSimulado);
         }
