@@ -28,11 +28,16 @@ public class Fiis extends Produto {
     }
 
 
-    public Fiis(double valorInvestido, double aporte, int meses, int qtdCotas, int reinvestir) {
-        super(valorInvestido, meses);
+    public Fiis( double aporte, int qtdCotas, int meses, int reinvestir) {
+        super( meses);
         this.aporte = aporte;
         this.qtdCotas = qtdCotas;
         this.reinvestir = reinvestir;
+    }
+    public Fiis(double valorInvestido, double aporte, int meses, int qtdCotas) {
+        super(valorInvestido, meses);
+        this.aporte = aporte;
+        this.qtdCotas = qtdCotas;
     }
 
 

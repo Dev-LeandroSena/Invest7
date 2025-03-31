@@ -14,18 +14,21 @@ public class Produto {
         this.meses = meses;
     }
 
-    public Produto(int idProduto) {
-        this.idProduto = idProduto;
+    public Produto(int meses) {
+        this.meses = meses;
     }
 
     public Produto (String nome) {
         this.nome = nome;
     }
 
+
     public Produto (String nome, double valorInvestido) {
         this.nome = nome;
         this.valorInvestido = valorInvestido;
     }
+
+
 
     public Produto (double valorInvestido, int meses) {
         this.valorInvestido = valorInvestido;
