@@ -19,9 +19,6 @@ import java.util.List;
 
 
 public class CalculadoraVariavel {
-    public static final int REINVESTIR_SIM = 1;
-    public static final int REINVESTIR_NAO = 2;
-    private static final double LIMITE_ISENCAO_IR = 20000.0;
 
 
 
@@ -51,11 +48,11 @@ public class CalculadoraVariavel {
             for (int mes = 1; mes <= meses; mes++) {
                 double dividendosRecebidos = quantidadeCotas * dividendoPorCota;
                 saldoDividendos += dividendosRecebidos + valorAporte;
-                if (reinvestir == REINVESTIR_SIM) {
+                if (reinvestir == 1) {
                     int novasCotas = (int) (saldoDividendos / precoCota);
                     quantidadeCotas += novasCotas;
                     saldoDividendos -= novasCotas * precoCota;
-                } if (reinvestir == REINVESTIR_NAO) {
+                } else  {
                     int novasCotasAporte = (int) (saldoDividendos / precoCota);
                     quantidadeCotas += novasCotasAporte;
                     saldoDividendos -= novasCotasAporte * precoCota;
@@ -110,11 +107,11 @@ public class CalculadoraVariavel {
             for (int mes = 1; mes <= meses; mes++) {
                 double dividendosRecebidos = quantidadeCotas * dividendoPorCota;
                 saldoDividendos += dividendosRecebidos + valorAporte;
-                if (reinvestir == REINVESTIR_SIM) {
+                if (reinvestir == 1) {
                     int novasCotas = (int) (saldoDividendos / precoCota);
                     quantidadeCotas += novasCotas;
                     saldoDividendos -= novasCotas * precoCota;
-                } if (reinvestir == REINVESTIR_NAO) {
+                } else  {
                     int novasCotasAporte = (int) (saldoDividendos / precoCota);
                     quantidadeCotas += novasCotasAporte;
                     saldoDividendos -= novasCotasAporte * precoCota;

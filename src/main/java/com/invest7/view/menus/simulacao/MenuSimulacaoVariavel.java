@@ -19,6 +19,7 @@ public class MenuSimulacaoVariavel {
 
         int prazo = 0, quantidadeCotas = 0, quantidade = 0, reinvestir = 0, simula=0;
         boolean digitoCerto = false;
+        boolean historico = false;
 
         do {
             System.out.println("-----------TELA DE SIMULACAO COMPLETA--------");
@@ -88,29 +89,8 @@ public class MenuSimulacaoVariavel {
             }
 
 
-            //InvestimentoView view = new InvestimentoView();
-            //InvestimentoController rendaSimulados = new InvestimentoController();
-            //Inicia a aplicação
-            //controller.iniciar();
-
-        /*CalculadoraVariavel calculadoraV = new CalculadoraVariavel();
-        List<Fiis> fiis = calculadoraV.simularFundoImobiliario(new Fiis(aporteMensal,
-                prazo, quantidadeCotas));
-
-        System.out.println();
-
-        System.out.println("///// Simulação de fiis /////");
-        for (Fiis resultados : fiis) {
-            System.out.println("nome" + resultados.getNome()
-                    + "Saldo cotas" + resultados.getSaldoCotas()
-                    + "Saldo Dividendos" + resultados.getSaldoDividendos());
-
-
-        }*/
-
-
             CalculadoraVariavel calculadoraV = new CalculadoraVariavel();
-            List<Fiis> fiis = calculadoraV.simularFundoImobiliario(new Fiis(aporteMensal, prazo, quantidadeCotas));
+            List<Fiis> fiis = calculadoraV.simularFundoImobiliario(new Fiis(aporteMensal, quantidadeCotas,prazo ,reinvestir), historico);
 
 // Cabeçalho da simulação
             System.out.println("\n===== SIMULAÇÃO DE FIIs =====");
@@ -128,20 +108,10 @@ public class MenuSimulacaoVariavel {
 // Rodapé
             System.out.println("╚════════════════════════════════════════════╝");
 
-// Resumo estatístico (opcional)
-            double totalCotas = fiis.stream().mapToDouble(Fiis::getSaldoCotas).sum();
-            double totalDividendos = fiis.stream().mapToDouble(Fiis::getSaldoDividendos).sum();
-
-            System.out.println("--------------------------------------------");
-            System.out.printf("TOTAL: R$ %,12.2f (Cotas) + R$ %,15.2f (Dividendos) = R$ %,15.2f%n%n",
-                    fiis.stream().mapToDouble(Fiis::getSaldoCotas).sum(),
-                    fiis.stream().mapToDouble(Fiis::getSaldoDividendos).sum(),
-                    fiis.stream().mapToDouble(f -> f.getSaldoCotas() + f.getSaldoDividendos()).sum());
-
 
             System.out.println();
 
-            List<Acoes> acoes = calculadoraV.simularAcao(capital, prazo);
+            List<Acoes> acoes = calculadoraV.simularAcao(capital, prazo, historico);
             System.out.println("╔════════════════════════════════════════════════════════════════════════════════════════════════════════════╗");
             System.out.println("║                                             Simulação de Ações                                             ║");
             System.out.println("╠════════╦═══════════════╦════════╦═══════════╦═══════════════╦═══════════════╦══════════════╦═══════════════╣");
