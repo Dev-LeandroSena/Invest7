@@ -93,20 +93,23 @@ public class MenuSimulacaoVariavel {
             List<Fiis> fiis = calculadoraV.simularFundoImobiliario(new Fiis(aporteMensal, quantidadeCotas,prazo ,reinvestir), historico);
 
 // Cabeçalho da simulação
-            System.out.println("\n===== SIMULAÇÃO DE FIIs =====");
-            System.out.printf("%-10s %15s %18s%n", "FII", "Saldo Cotas", "Saldo Dividendos");
-            System.out.println("--------------------------------------------");
+            System.out.println("\n╔════════════════════════════════════════════════════════════════════╗");
+            System.out.println("║                    SIMULAÇÃO DE FUNDOS IMOBILIÁRIOS                ║");
+            System.out.println("╠══════════════╦═════════════╦════════════════╦══════════════════════╣");
+            System.out.println("║    FII       ║  Qtd Cotas  ║  Saldo Cotas   ║  Saldo Dividendos    ║");
+            System.out.println("╠══════════════╬═════════════╬════════════════╬══════════════════════╣");
 
-// Corpo dos resultados
             for (Fiis resultados : fiis) {
-                System.out.printf("%-10s R$ %,12.2f R$ %,15.2f%n",
+                System.out.printf(
+                        "║ %-12s ║ %,10d  ║ R$ %,10.2f  ║ R$ %,15.2f   ║%n",
                         resultados.getNome(),
+                        resultados.getQtdCotas(),
                         resultados.getSaldoCotas(),
-                        resultados.getSaldoDividendos());
+                        resultados.getSaldoDividendos()
+                );
             }
 
-// Rodapé
-            System.out.println("╚════════════════════════════════════════════╝");
+            System.out.println("╚══════════════╩═════════════╩════════════════╩══════════════════════╝");
 
 
             System.out.println();

@@ -71,6 +71,7 @@ public class CalculadoraVariavel {
             fiiSimulado.setSaldoCotas((quantidadeCotas*precoCota));
             fiiSimulado.setSaldoDividendos(saldoDividendos);
             fiiSimulado.setId_fiis(fii.getId_fiis());
+            fiiSimulado.setQtdCotas(quantidadeCotas);
             fiisSimulados.add(fiiSimulado);
         }
         if (historico){
