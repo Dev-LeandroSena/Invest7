@@ -48,13 +48,9 @@ public class Produto {
         this.idProduto = idProduto;
     }
 
-    public String getNome() {
-        return nome;
-    }
+    public String getNome() {return nome;}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    public void setNome(String nome) {this.nome = nome;}
 
     public double getValorInvestido() {
         return valorInvestido;
@@ -64,9 +60,7 @@ public class Produto {
         this.valorInvestido = valorInvestido;
     }
 
-    public int getMeses() {
-        return meses;
-    }
+    public int getMeses() {return meses;}
 
     public void setMeses(int meses) {
         this.meses = meses;
