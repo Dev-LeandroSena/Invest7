@@ -35,6 +35,7 @@ public class CalculadoraVariavel {
 
         for (Fiis fii : resultados) {
             double saldoDividendos = 0;
+            double saldoAporte = 0;
             double dividendoPorCota = fii.getDividendYield();
             double valorAporte = calculadoraV.getAporte();
             double precoCota = fii.getPrecoFiis();
@@ -47,15 +48,22 @@ public class CalculadoraVariavel {
 
             for (int mes = 1; mes <= meses; mes++) {
                 double dividendosRecebidos = quantidadeCotas * dividendoPorCota;
-                saldoDividendos += dividendosRecebidos + valorAporte;
+
+                if (reinvestir == 1) {
+                    saldoDividendos += dividendosRecebidos + valorAporte;
+                } else {
+                    saldoDividendos += dividendosRecebidos;
+                    saldoAporte += valorAporte;
+                }
+
                 if (reinvestir == 1) {
                     int novasCotas = (int) (saldoDividendos / precoCota);
                     quantidadeCotas += novasCotas;
                     saldoDividendos -= novasCotas * precoCota;
-                } else  {
-                    int novasCotasAporte = (int) (saldoDividendos / precoCota);
+                } else {
+                    int novasCotasAporte = (int) (saldoAporte / precoCota);
                     quantidadeCotas += novasCotasAporte;
-                    saldoDividendos -= novasCotasAporte * precoCota;
+                    saldoAporte -= novasCotasAporte * precoCota;
                 }
             }
 
